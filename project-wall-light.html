@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modular Wall Light — Elias Savage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0c;--bg2:#141414;--bg3:#1c1c1c;--text:#f0ede8;--text-mid:#999;--text-dim:#555;--border:#242424;--font-d:'Barlow Condensed',sans-serif;--font-b:'DM Sans',sans-serif;--font-m:'DM Mono',monospace;--gap:clamp(1.5rem,3vw,3rem);--gutter:clamp(1.5rem,5vw,5rem)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:16px;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;width:100%}
+.mono{font-family:var(--font-m);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}.dim{color:var(--text-dim)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem var(--gutter);transition:background .4s}
+.nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--font-d);font-weight:900;font-size:1.25rem;letter-spacing:.06em}
+.nav-back{font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);transition:color .2s;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--text)}
+.img-slot{background:var(--bg3);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:1rem;position:relative;overflow:hidden;transition:border-color .25s;cursor:pointer;width:100%}
+.img-slot:hover{border-color:var(--text-dim)}.img-slot.drag-over{border-color:var(--text)}
+.img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slot-hint{font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;color:var(--text-dim);position:relative;z-index:1}
+.proj-header{padding:8rem var(--gutter) 4rem;border-bottom:1px solid var(--border)}
+.proj-num{font-family:var(--font-m);font-size:.65rem;letter-spacing:.1em;color:var(--text-dim);margin-bottom:1.25rem;display:block}
+.proj-title{font-family:var(--font-d);font-weight:900;font-size:clamp(3.5rem,8vw,8rem);line-height:.88;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:1.75rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.75rem}
+.bracket-tag{font-family:var(--font-m);font-size:.65rem;letter-spacing:.07em;color:var(--text-dim)}
+.yr-tag{font-family:var(--font-m);font-size:.65rem;color:var(--text-dim);margin-left:auto}
+.proj-hero .img-slot{aspect-ratio:16/9;border-left:none;border-right:none;border-top:none}
+.proj-body{display:grid;grid-template-columns:1.5fr 1fr;border-bottom:1px solid var(--border)}
+.proj-text{padding:4rem var(--gutter)}.proj-text p{font-size:1rem;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:1.25rem}
+.proj-specs{padding:4rem var(--gutter);border-left:1px solid var(--border);display:flex;flex-direction:column;gap:2rem}
+.spec-label{display:block;font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;color:var(--text-dim);margin-bottom:.5rem}
+.spec-val{font-size:.875rem;color:var(--text-mid);font-weight:300;line-height:1.65}
+.proj-gallery{display:grid;gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+.proj-gallery .img-slot{border:none;aspect-ratio:4/3}
+.proj-takeaways{display:grid;grid-template-columns:1fr 2fr;gap:var(--gap);padding:3rem var(--gutter);border-bottom:1px solid var(--border);align-items:start}
+.tk-head{font-family:var(--font-d);font-weight:800;font-size:1.5rem;text-transform:uppercase;letter-spacing:-.01em}
+.tk-list{display:flex;flex-direction:column;gap:.4rem}
+.tk-list li{font-family:var(--font-m);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);padding-left:.85rem;position:relative}
+.tk-list li::before{content:'>';position:absolute;left:0}
+.proj-nav{display:grid;grid-template-columns:1fr 1fr 1fr}
+.proj-nav a{padding:2rem var(--gutter);font-family:var(--font-m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);transition:color .2s,background .2s;border-right:1px solid var(--border);border-top:1px solid var(--border);display:block}
+.proj-nav a:last-child{border-right:none;text-align:right}.proj-nav a:nth-child(2){text-align:center}.proj-nav a:hover{color:var(--text);background:var(--bg2)}
+
+.proj-gallery{position:relative;isolation:isolate}
+.proj-gallery .img-slot{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.proj-gallery .img-slot:hover{transform:scale(1.14);z-index:5;box-shadow:0 2.5rem 5rem rgba(0,0,0,.7)}
+.proj-gallery.wide .img-slot{aspect-ratio:16/9}
+.g4{grid-template-columns:repeat(4,1fr)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.proj-body{grid-template-columns:1fr}.proj-specs{border-left:none;border-top:1px solid var(--border)}.g3{grid-template-columns:1fr 1fr}.proj-takeaways{grid-template-columns:1fr}}
+@media(max-width:600px){.proj-nav a{padding:1.5rem 1rem}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="portfolio.html" class="nav-back"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> All Work</a>
+  <a href="portfolio.html" class="nav-logo">ES</a>
+  <span class="mono dim">02 / 06</span>
+</nav>
+<header class="proj-header reveal">
+  <span class="proj-num">[02] — Product Design · Electronics Integration</span>
+  <h1 class="proj-title">Modular<br>Wall Light</h1>
+  <div class="proj-tags">
+    <span class="bracket-tag">[Product Design]</span>
+    <span class="bracket-tag">[Electronics Integration]</span>
+    <span class="bracket-tag">[Modular Architecture]</span>
+    <span class="bracket-tag">[CAD]</span>
+    <span class="yr-tag">A-Level Component 2 · 2024</span>
+  </div>
+</header>
+<div class="proj-hero">
+  <div class="img-slot"><img src="images/wall-light/hero.webp" alt="Modular wall light — final product photograph"></div>
+</div>
+<div class="proj-body reveal">
+  <div class="proj-text">
+    <p>A wall-mounted light designed around the theme of tension — interchangeable shade modules, an adjustable-angle arm with paracord tensioning, and integrated COB LED lighting with wireless dimming. The modular shade system lets the user swap between diffused ambient and directional task lighting.</p>
+    <p>Electronics integration required selecting COB over SMD strips for diffusion quality, specifying a 24V driver, and routing cables through hollow structural members to maintain clean geometry. The wireless dimmer avoids visible wall switches and keeps the product self-contained.</p>
+    <p>Development involved extensive model-making — laser-cut and 3D-printed components tested across multiple iterations before committing to the final geometry. The paracord tensioning system required physical testing to determine the correct angle range and anchoring method.</p>
+  </div>
+  <div class="proj-specs">
+    <div><span class="spec-label">Year</span><span class="spec-val">2024 — A-Level Component 2</span></div>
+    <div><span class="spec-label">Lighting</span><span class="spec-val">COB LED strip, 24V driver, wireless dimming</span></div>
+    <div><span class="spec-label">Mechanism</span><span class="spec-val">Paracord-tensioned arm, interchangeable shade modules</span></div>
+    <div><span class="spec-label">Processes</span><span class="spec-val">CAD modelling, laser cutting, 3D printing, assembly</span></div>
+  </div>
+</div>
+<div class="proj-gallery g3 reveal">
+  <div class="img-slot"><img src="images/wall-light/gallery-1.webp" alt="CAD renders — both shade configs"></div>
+  <div class="img-slot"><img src="images/wall-light/gallery-2.webp" alt="Exploded assembly view"></div>
+  <div class="img-slot"><img src="images/wall-light/gallery-3.webp" alt="Development models"></div>
+</div>
+<div class="proj-takeaways reveal">
+  <h2 class="tk-head">Key Takeaways</h2>
+  <ul class="tk-list">
+    <li>Modular product architecture — interchangeable shades on a single mount</li>
+    <li>COB vs SMD decision — diffusion quality as the primary driver</li>
+    <li>Cable routing through hollow structure for clean geometry</li>
+    <li>Iterative physical model development before final manufacture</li>
+  </ul>
+</div>
+<nav class="proj-nav">
+  <a href="project-desk-lamp.html">&larr; Desk Lamp</a>
+  <a href="portfolio.html">All Work</a>
+  <a href="project-plant-pot.html">Smart Plant Pot &rarr;</a>
+</nav>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(([e],obs)=>{if(e.isIntersecting){el.classList.add('in');obs.unobserve(el);}},{threshold:.07,rootMargin:'0px 0px -30px 0px'}).observe(el);});
+
+</script>
+</body>
+</html>
