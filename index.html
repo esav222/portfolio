@@ -72,6 +72,9 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
 .bracket-tag{font-family:var(--font-m);font-size:.62rem;letter-spacing:.07em;color:var(--text-dim)}
 .yr{font-family:var(--font-m);font-size:.62rem;color:var(--text-dim);margin-left:auto}
 .card-title{font-family:var(--font-d);font-weight:800;font-size:clamp(1.4rem,2.2vw,2rem);line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--text);transition:color .25s}
+.card-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.chip-sm{font-family:var(--font-m);font-size:.7rem;font-weight:700;letter-spacing:.03em;color:var(--text);background:var(--bg3);border:1px solid var(--text-dim);padding:.35rem .65rem;border-radius:2px}
+.work-card:hover .chip-sm{border-color:var(--text)}
 .work-card:hover .card-title{color:var(--text-mid)}
 .about{background:var(--bg2)}
 .about-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start}
@@ -142,7 +145,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <a href="project-drawings.html" class="skill-tag core">Technical Documentation</a>
     </div>
     <div class="tag-row">
-      <span class="tag-row-label">Transferable</span>
+      <span class="tag-row-label">Soft Skills</span>
       <a href="project-wall-light.html" class="skill-tag soft">Problem Solving</a>
       <a href="project-plant-pot.html" class="skill-tag soft">Communication</a>
       <a href="project-plant-pot.html" class="skill-tag soft">Teamwork</a>
@@ -160,6 +163,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[CAD Visualisation]</span><span class="bracket-tag">[CGI Compositing]</span><span class="yr">2025</span></div>
         <h3 class="card-title">AeroPress CAD Visualisation</h3>
+        <div class="card-skills"><span class="chip-sm">3D Modelling</span><span class="chip-sm">Product Rendering</span><span class="chip-sm">Attention to Detail</span></div>
       </div>
     </a>
     <a href="project-wall-light.html" class="work-card reveal">
@@ -167,6 +171,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[Product Design]</span><span class="bracket-tag">[Electronics]</span><span class="yr">2024</span></div>
         <h3 class="card-title">Modular Wall Light</h3>
+        <div class="card-skills"><span class="chip-sm">Product Design</span><span class="chip-sm">Rapid Prototyping</span><span class="chip-sm">Problem Solving</span></div>
       </div>
     </a>
     <a href="project-desk-lamp.html" class="work-card reveal">
@@ -174,6 +179,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[Physical Making]</span><span class="bracket-tag">[CAD]</span><span class="yr">2020</span></div>
         <h3 class="card-title">Bent Lamination Floor Lamp</h3>
+        <div class="card-skills"><span class="chip-sm">Lamination</span><span class="chip-sm">CAD</span><span class="chip-sm">Craftsmanship</span></div>
       </div>
     </a>
     <a href="project-plant-pot.html" class="work-card reveal">
@@ -181,6 +187,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[Engineering Analysis]</span><span class="bracket-tag">[Siemens NX]</span><span class="yr">2025</span></div>
         <h3 class="card-title">EWB Smart Plant Pot</h3>
+        <div class="card-skills"><span class="chip-sm">Siemens NX CAD</span><span class="chip-sm">Technical Analysis</span><span class="chip-sm">Teamwork</span></div>
       </div>
     </a>
     <a href="project-damp-system.html" class="work-card reveal">
@@ -188,6 +195,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[Sensor Integration]</span><span class="bracket-tag">[Arduino]</span><span class="yr">2025</span></div>
         <h3 class="card-title">BRE Damp Prevention System</h3>
+        <div class="card-skills"><span class="chip-sm">Sensor Integration</span><span class="chip-sm">Testing &amp; Validation</span><span class="chip-sm">Project Ownership</span></div>
       </div>
     </a>
     <a href="project-drawings.html" class="work-card reveal">
@@ -195,6 +203,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
       <div class="card-info">
         <div class="card-meta-row"><span class="bracket-tag">[Engineering Drawing]</span><span class="bracket-tag">[BS8888]</span><span class="yr">2025</span></div>
         <h3 class="card-title">BS8888 Engineering Drawings</h3>
+        <div class="card-skills"><span class="chip-sm">Engineering Drawing</span><span class="chip-sm">GD&amp;T</span><span class="chip-sm">Precision</span></div>
       </div>
     </a>
   </div>
