@@ -24,8 +24,9 @@
 .proj-num{font-family:var(--font-m);font-size:.65rem;letter-spacing:.1em;color:var(--text-dim);margin-bottom:1.25rem;display:block}
 .proj-title{font-family:var(--font-d);font-weight:900;font-size:clamp(3.5rem,8vw,8rem);line-height:.88;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:1.75rem}
 .proj-tags{display:flex;flex-direction:column;gap:.65rem;margin-bottom:.25rem}
-.tag-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-.tag-row-label{font-family:var(--font-m);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-right:.15rem;min-width:6.5rem}
+.tag-row{display:grid;grid-template-columns:6.5rem 1fr;column-gap:.6rem;align-items:start}
+.tag-row-label{font-size:.6rem;font-family:var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding-top:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
 .skill-tag{font-family:var(--font-m);font-size:.82rem;letter-spacing:.02em;padding:.45rem .9rem;border-radius:2px;white-space:nowrap;line-height:1}
 .skill-tag.core{background:var(--text);color:var(--bg);font-weight:700;border:1px solid var(--text)}
 .skill-tag.soft{background:transparent;color:var(--text-mid);border:1px solid var(--text-dim);font-weight:400}
@@ -71,16 +72,20 @@
   <div class="proj-tags">
     <div class="tag-row">
       <span class="tag-row-label">Technical</span>
+      <div class="chips">
       <span class="skill-tag core">[Lamination]</span>
       <span class="skill-tag core">[Introduction to CAD]</span>
       <span class="yr-tag">GCSE · 2020</span>
+      </div>
     </div>
     <div class="tag-row">
       <span class="tag-row-label">Soft Skills</span>
+      <div class="chips">
       <span class="skill-tag soft">Independent Learning</span>
       <span class="skill-tag soft">Time Management</span>
       <span class="skill-tag soft">Organisation</span>
       <span class="skill-tag soft">Craftsmanship</span>
+      </div>
     </div>
   </div>
 </header>

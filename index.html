@@ -54,8 +54,9 @@ a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;width:
 .slot-hint{font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;color:var(--text-dim);position:relative;z-index:1}
 .core-skills{padding:clamp(2.5rem,5vw,4rem) var(--gutter) clamp(3rem,6vw,5rem)}
 .skills-band{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
-.tag-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-.tag-row-label{font-family:var(--font-m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-right:.25rem;min-width:6.5rem}
+.tag-row{display:grid;grid-template-columns:6.5rem 1fr;column-gap:.6rem;align-items:start}
+.tag-row-label{font-size:.62rem;font-family:var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding-top:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
 .skill-tag{font-family:var(--font-m);font-size:.85rem;letter-spacing:.02em;padding:.5rem 1rem;border-radius:2px;white-space:nowrap;line-height:1;display:inline-block;transition:transform .15s,border-color .15s,color .15s}
 .skill-tag.core{background:var(--text);color:var(--bg);font-weight:700;border:1px solid var(--text)}
 .skill-tag.soft{background:transparent;color:var(--text-mid);border:1px solid var(--text-dim);font-weight:400}
@@ -123,7 +124,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
     <span class="mono dim">[Product Design Engineering]</span>
     <span class="mono dim">Loughborough University</span>
   </div>
-  <h1 class="hero-name"><span class="nm-a">ELIAS</span><br>SAVAGE</h1>
+  <h1 class="hero-name"><span class="nm-a">ELIAS</span><br><span class="nm-b">SAVAGE</span></h1>
   <div class="hero-bottom">
     <p class="hero-sub">First-year student building things that work — from bent-laminated oak lamps to sensor-driven embedded systems.</p>
     <a href="#work" class="scroll-cue">Selected Work <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 8l6 6 6-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -139,19 +140,23 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
   <div class="skills-band">
     <div class="tag-row">
       <span class="tag-row-label">Technical</span>
+      <div class="chips">
       <a href="project-aeropress.html" class="skill-tag core">CAD &amp; 3D Modelling</a>
       <a href="project-wall-light.html" class="skill-tag core">Prototyping &amp; Manufacturing</a>
       <a href="project-plant-pot.html" class="skill-tag core">Technical Analysis &amp; Data</a>
       <a href="project-damp-system.html" class="skill-tag core">Testing &amp; Validation</a>
       <a href="project-drawings.html" class="skill-tag core">Technical Documentation</a>
+      </div>
     </div>
     <div class="tag-row">
       <span class="tag-row-label">Soft Skills</span>
+      <div class="chips">
       <a href="project-wall-light.html" class="skill-tag soft">Problem Solving</a>
       <a href="project-plant-pot.html" class="skill-tag soft">Communication</a>
       <a href="project-plant-pot.html" class="skill-tag soft">Teamwork</a>
       <a href="project-damp-system.html" class="skill-tag soft">Project Ownership</a>
       <a href="project-desk-lamp.html" class="skill-tag soft">Organisation</a>
+      </div>
     </div>
   </div>
 </section>
@@ -240,6 +245,22 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
 </section>
 
 <script>
+/* ── name width match ── */
+(function(){
+  var a=document.querySelector('.hero-name .nm-a'),b=document.querySelector('.hero-name .nm-b');
+  if(!a||!b)return;
+  function fit(){
+    a.style.fontSize='';
+    var wa=a.getBoundingClientRect().width,wb=b.getBoundingClientRect().width;
+    if(wa&&wb){
+      var base=parseFloat(getComputedStyle(a).fontSize);
+      a.style.fontSize=(base*(wb/wa))+'px';
+    }
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}else{fit();}
+  window.addEventListener('resize',fit);
+})();
+
 /* ── nav scroll ── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
