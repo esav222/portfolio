@@ -51,6 +51,15 @@ a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;width:
 .slot-tag{position:absolute;top:.75rem;left:.75rem;font-family:var(--font-m);font-size:.65rem;letter-spacing:.08em;color:var(--text-dim)}
 .slot-label{font-family:var(--font-d);font-weight:700;font-size:clamp(.85rem,1.4vw,1.05rem);line-height:1.1;color:var(--text-mid);position:relative;z-index:1}
 .slot-hint{font-family:var(--font-m);font-size:.62rem;letter-spacing:.08em;color:var(--text-dim);position:relative;z-index:1}
+.core-skills{padding:clamp(2.5rem,5vw,4rem) var(--gutter) clamp(3rem,6vw,5rem)}
+.skills-band{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.tag-row-label{font-family:var(--font-m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-right:.25rem;min-width:5.5rem}
+.skill-tag{font-family:var(--font-m);font-size:.85rem;letter-spacing:.02em;padding:.5rem 1rem;border-radius:2px;white-space:nowrap;line-height:1;display:inline-block;transition:transform .15s,border-color .15s,color .15s}
+.skill-tag.core{background:var(--text);color:var(--bg);font-weight:700;border:1px solid var(--text)}
+.skill-tag.soft{background:transparent;color:var(--text-mid);border:1px solid var(--text-dim);font-weight:400}
+.skill-tag:hover{transform:translateY(-2px)}
+.skill-tag.soft:hover{border-color:var(--text);color:var(--text)}
 section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
 .section-header{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:0}
 .section-title{font-family:var(--font-d);font-weight:900;font-size:clamp(3.5rem,7vw,7rem);line-height:.88;letter-spacing:-.02em;text-transform:uppercase}
@@ -92,6 +101,7 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
 <nav class="nav" id="nav">
   <a href="#hero" class="nav-logo">ES</a>
   <div class="nav-links">
+    <a href="#skills">Skills</a>
     <a href="#work">Work</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
@@ -115,6 +125,31 @@ section{padding:clamp(4rem,8vw,8rem) var(--gutter)}
     <a href="#work" class="scroll-cue">Selected Work <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 8l6 6 6-6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 
+</section>
+
+<section class="core-skills reveal" id="skills">
+  <div class="section-header">
+    <h2 class="section-title">SKILLS</h2>
+    <span class="mono dim">Employer-aligned &middot; click a skill to see the evidence</span>
+  </div>
+  <div class="skills-band">
+    <div class="tag-row">
+      <span class="tag-row-label">Technical</span>
+      <a href="project-aeropress.html" class="skill-tag core">CAD &amp; 3D Modelling</a>
+      <a href="project-wall-light.html" class="skill-tag core">Prototyping &amp; Manufacturing</a>
+      <a href="project-plant-pot.html" class="skill-tag core">Technical Analysis &amp; Data</a>
+      <a href="project-damp-system.html" class="skill-tag core">Testing &amp; Validation</a>
+      <a href="project-drawings.html" class="skill-tag core">Technical Documentation</a>
+    </div>
+    <div class="tag-row">
+      <span class="tag-row-label">Transferable</span>
+      <a href="project-wall-light.html" class="skill-tag soft">Problem Solving</a>
+      <a href="project-plant-pot.html" class="skill-tag soft">Communication</a>
+      <a href="project-plant-pot.html" class="skill-tag soft">Teamwork</a>
+      <a href="project-damp-system.html" class="skill-tag soft">Project Ownership</a>
+      <a href="project-desk-lamp.html" class="skill-tag soft">Organisation</a>
+    </div>
+  </div>
 </section>
 
 <section class="work" id="work" style="padding-bottom:0">
