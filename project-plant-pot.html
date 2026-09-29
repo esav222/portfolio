@@ -91,9 +91,9 @@
 </header>
 <div class="proj-body reveal">
   <div class="proj-text">
-    <p>A six-person group project designing a smart indoor plant pot for primary schools in Ladywood, Birmingham. The brief, set by Engineers Without Borders, required a low-cost, self-managing growing system suitable for a classroom environment.</p>
-    <p>The integrated system combines a light sensor, moisture sensor, PID-controlled LED grow light, self-watering reservoir, and adjustable-height frame. My contributions focused on leading the prototyping of LED geometries — designing and testing ring and dome configurations to optimise light distribution across the plant canopy.</p>
-    <p>I wrote the technical analysis of the light system with PPFD and DLI calculations to validate the LED specification, and built the majority of the CAD assembly in Siemens NX. The PID control diagram was developed alongside the light system analysis to demonstrate the feedback loop between sensor input and LED output.</p>
+    <p>This was a six-person project for an Engineers Without Borders brief about tackling healthy eating in Ladywood, Birmingham. Ladywood is an area with real problems around food insecurity and child poverty. As a group we researched the problem area and consulted the brief to come up with our problem statement: "making a design to encourage healthy eating for children in Ladywood." We then wrote a product design specification &mdash; to inform it, we classified our stakeholders and built an empathy map. From there we ideated and used a weighted decision matrix to decide which product to take forward into development. The chosen product was a smart plant pot to help children in school grow dwarf peppers, to interest them in the process of growing vegetables.</p>
+    <p>One part of the project I took a lot of ownership over was the light supplementation system. This began with finding a shape that efficiently delivered light to the plant, in order to reduce energy consumption and wasted light. To test this, we 3D printed four different shapes &mdash; a flat ring, rings at 15&deg; and 30&deg; inclines, and a dome &mdash; and attached an LED strip to each. We then recorded the lux value produced by each shape at varying x and y distances from the LDR, repeating each measurement to improve accuracy. The dome produced the greatest light intensity within the area the plant would occupy, so this is the shape we carried into the final design. After that I wrote a technical description of the light system, covering how the Daily Light Integral would be calculated and how a PID controller would be implemented to ensure the plant got the right amount of light every day &mdash; shown below. This included key considerations such as only supplying light during set hours, to avoid disturbing the plant's circadian rhythm.</p>
+    <p>Finally, another key contribution I made was the CAD design &mdash; I modelled almost all of it, minus one or two components. The assembly consists of 11 components and isn't in a manufacturable state, but it shows the basic internal workings of the product. All parts and the assembly were built in Siemens NX.</p>
   </div>
   <div class="proj-specs">
     <div><span class="spec-label">Year</span><span class="spec-val">2025 — University Year 1</span></div>
@@ -103,10 +103,10 @@
   </div>
 </div>
 <div class="proj-gallery g1 wide reveal">
-  <div class="img-slot"><img src="images/plant-pot/a.webp" alt="LED geometry test shapes — ring vs dome"></div>
+  <div class="img-slot"><img src="images/plant-pot/c.webp" alt="LED geometry prototyping — ring and dome light tests"></div>
+  <div class="img-slot"><img src="images/plant-pot/a.webp" alt="Final design product drawings and colour renders"></div>
   <div class="img-slot"><img src="images/plant-pot/b.webp" alt="Exploded assembly CAD view"></div>
-  <div class="img-slot"><img src="images/plant-pot/c.webp" alt="PID control diagram"></div>
-  <div class="img-slot"><img src="images/plant-pot/d.webp" alt="PPFD / DLI analysis"></div>
+  <div class="img-slot"><img src="images/plant-pot/d.webp" alt="PID control diagram and PPFD/DLI analysis"></div>
 </div>
 <div class="proj-takeaways reveal">
   <h2 class="tk-head">Key Takeaways</h2>
