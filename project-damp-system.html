@@ -53,7 +53,7 @@
 .proj-gallery .img-slot{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
 .proj-gallery .img-slot:hover{transform:scale(1.14);z-index:5;box-shadow:0 2.5rem 5rem rgba(0,0,0,.7)}
 .proj-gallery.wide .img-slot{aspect-ratio:16/9}
-.g4{grid-template-columns:repeat(4,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}.reveal.in{opacity:1;transform:none}
 @media(max-width:900px){.proj-body{grid-template-columns:1fr}.proj-specs{border-left:none;border-top:1px solid var(--border)}.g3{grid-template-columns:1fr 1fr}.proj-takeaways{grid-template-columns:1fr}}
 @media(max-width:600px){.proj-nav a{padding:1.5rem 1rem}}
@@ -104,6 +104,10 @@
     <div><span class="spec-label">My Role</span><span class="spec-val">System ideation, feature ranking and concept selection, functional requirements, prototype testing</span></div>
     <div><span class="spec-label">Components</span><span class="spec-val">DHT20, PIR sensor, servo fan, RGB LCD, Arduino Uno</span></div>
   </div>
+</div>
+<div class="proj-gallery g2 reveal">
+  <div class="img-slot"><img src="images/damp-system/thumb.webp" alt="BRE damp prevention system prototype"></div>
+  <div class="img-slot"><img src="images/damp-system/table.webp" alt="Table 2 — system requirement performance results"></div>
 </div>
 <div class="proj-takeaways reveal">
   <h2 class="tk-head">Key Takeaways</h2>
